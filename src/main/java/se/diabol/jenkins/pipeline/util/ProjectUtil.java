@@ -19,6 +19,7 @@ package se.diabol.jenkins.pipeline.util;
 
 import static com.google.common.collect.Maps.newLinkedHashMap;
 
+import com.google.common.collect.ImmutableSet;
 import hudson.EnvVars;
 import hudson.Util;
 import hudson.model.AbstractBuild;
@@ -120,7 +121,8 @@ public final class ProjectUtil {
         for (RelationshipResolver resolver : resolvers) {
             result.addAll(resolver.getDownstreamProjects(project));
         }
-        return result;
+
+       return ImmutableSet.copyOf(result).asList();
     }
 
     public static AbstractProject<?, ?> getProject(String name, ItemGroup context) {
