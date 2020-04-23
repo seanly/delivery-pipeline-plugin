@@ -16,6 +16,5 @@ public class PipelineVersionBuildVariableContributor extends BuildVariableContri
         if (pipelineVersionAction != null) {
             variablesOut.put(PipelineVersionContributor.VERSION_PARAMETER, pipelineVersionAction.getVersion());
         }
-
     }
 }
